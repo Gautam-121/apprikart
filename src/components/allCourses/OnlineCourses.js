@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import "./courses.css"
-import { online } from "../../dummyData"
 import Heading from "../common/heading/Heading"
-import nameLogo  from "../../assets/courses/online/o11.1.png"
+import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen"
 
 
 const OnlineCourses = () => {
@@ -17,23 +17,31 @@ const OnlineCourses = () => {
 
     const data = await fetch("http://localhost:8080/api/v1/getOnlineCourses")
     const jsonFile = await data.json()
-    console.log(jsonFile)
+    setOnlineCourses(jsonFile?.onlineCourses)
   }
-  
+
+// Create and configure your Cloudinary instance.
+  const cld = new Cloudinary({
+    cloud: {
+        cloudName: 'detpakhdb'
+     }
+  });
+
   return (
     <>
       <section className='online'>
         <div className='container'>
           <Heading subtitle='COURSES' title='Browse Our Online Courses' />
           <div className='content grid3'>
-            {online.map((val) => (
-              <div className='box'>
+            {onlineCourses.map((val , index) => (
+              <div className='box' key={index}>
                 <div className='img'>
-                  <img src={nameLogo} alt="this is imgCover" />
-                  <img src={nameLogo} alt='this is profile-img' className='show' />
+                <AdvancedImage cldImg={cld.image(val?.cover?.public_id)} />
+                  {/* <img src={nameLogo} alt="this is imgCover" /> */}
+                  {/* <img src={nameLogo} alt='this is profile-img' className='show' /> */}
                 </div>
                 <h1>{val.courseName}</h1>
-                <span>{val.course}</span>
+                <span>{val.course} lectures</span>
               </div>
             ))}
           </div>

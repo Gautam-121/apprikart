@@ -128,7 +128,7 @@ const registerdOnlineCourse = async (req , res , next)=>{
 const getCourses =  async (req , res , next)=>{
 
     try{
-        const courses = await Course.find()
+        const courses = await Course.find().populate("instructor")
         res.status(200).json({
         success : true,
         courses
