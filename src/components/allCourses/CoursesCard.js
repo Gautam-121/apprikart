@@ -1,10 +1,23 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./courses.css"
 import { coursesCard } from "../../dummyData"
 import Logo from "../../assets/courses/c1.png"
 import nameLogo  from "../../assets/courses/online/o11.1.png"
 
 const CoursesCard = () => {
+
+  const [coursesCards , setCoursesCards] = useState([])
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+  async function fetchData(){
+    const data = await fetch("http://localhost:8080/api/v1/getCourses")
+    const jsonFile = await data.json()
+    console.log(jsonFile)
+  }
+
   return (
     <>
       <section className='coursesCard'>

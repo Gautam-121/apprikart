@@ -18,19 +18,16 @@ const courseSchema = new mongoose.Schema({
             required:true
         }
     },
-    Instructor : {
+    instructor : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : "istructor"
-    },
-    totalTime: {
-        type : String,
-        required : [true , "TotalTime Should not be empty"]
+        ref : "istructor",
+        required : true
     },
     priceAll: {
         type : String,
         required : [true , "PriceAll should not be empty"]
     },
-    pricePer: {
+    pricePerMonth: {
         type : String,
         required : [true , "PricePer should not be empty"]
     },

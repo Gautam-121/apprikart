@@ -47,7 +47,7 @@ const registeredCourse = async (req , res , next)=>{
 
     try{
 
-        const {courseName  , instructor , totalTime , priceAll , pricePer , noOfLectures , noOfHours} = req.body
+     const {coursesName  , instructor  , priceAll , pricePerMonth , noOfLectures , noOfHours} = req.body
 
     const file = req.files?.photo
 
@@ -62,11 +62,10 @@ const registeredCourse = async (req , res , next)=>{
         })
 
         const course = await Course.create({
-            courseName  , 
+            coursesName  , 
             instructor , 
-            totalTime , 
             priceAll , 
-            pricePer , 
+            pricePerMonth , 
             noOfLectures ,
             noOfHours,
             cover : {
