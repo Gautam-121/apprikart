@@ -13,17 +13,6 @@ const onlineCoursesSchema = new mongoose.Schema({
             required:true
         }
     },
-    hoverCover: { 
-
-        public_id : {
-            type:String,
-            required:true
-        },
-        url: {
-            type:String,
-            required:true
-        }
-    },
     courseName : {
         type : String,
         required:[true , "courseName Should not be empty"]
