@@ -11,11 +11,12 @@ app.use(fileUpload({
     useTempFiles : true
 }))
 
-
+//import routing
 const courseRouter = require("./routes/courseRouter.js")
 
 app.use("/api/v1" , courseRouter)
 
+//use errorMiddleware globally
 app.use(errorMiddleware)
 
 

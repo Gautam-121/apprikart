@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import "./courses.css"
 import Heading from "../common/heading/Heading"
+import useOnlineCourses from "../../utils/useOnlineCourses";
 import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen"
 
 
 const OnlineCourses = () => {
 
-  const [onlineCourses , setOnlineCourses ] = useState([])
 
-  useEffect(()=>{
-    fetchData()
-  },[])
-
-  async function fetchData(){
-
-    const data = await fetch("http://localhost:8080/api/v1/getOnlineCourses")
-    const jsonFile = await data.json()
-    setOnlineCourses(jsonFile?.onlineCourses)
-  }
+  const onlineCourses = useOnlineCourses()
 
 // Create and configure your Cloudinary instance.
   const cld = new Cloudinary({

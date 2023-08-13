@@ -5,6 +5,7 @@ const Istructor = require("../model/istructorModel.js")
 const OnlineCourse = require("../model/onlineCoursesModel.js")
 
 
+//Istructor Registration Controller
 const registerIstructor = async (req , res , next)=>{
 
     try{
@@ -43,6 +44,7 @@ const registerIstructor = async (req , res , next)=>{
     
 }
 
+//Courses Registration Controller
 const registeredCourse = async (req , res , next)=>{
 
     try{
@@ -86,6 +88,7 @@ const registeredCourse = async (req , res , next)=>{
     }
 }
 
+//OnlineCourses Registration Controller
 const registerdOnlineCourse = async (req , res , next)=>{
     
     try{
@@ -125,6 +128,7 @@ const registerdOnlineCourse = async (req , res , next)=>{
     }
 }
 
+//Access Courses
 const getCourses =  async (req , res , next)=>{
 
     try{
@@ -138,6 +142,7 @@ const getCourses =  async (req , res , next)=>{
     }
 }
 
+//get Online Courses
 const getOnlineCourses = async (req , res , next)=>{
 
     try{

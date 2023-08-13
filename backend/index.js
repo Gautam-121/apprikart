@@ -3,6 +3,7 @@ const dotenv = require("dotenv")
 const connection = require("./config/connection")
 const cloudinary =  require("cloudinary")
 
+//handling UncaughtException Error
 process.on("uncaughtException" , (err)=>{
     console.log(`Error is ${err}`)
     console.log(`Shutting Down due to uncaughtException Error`)
@@ -28,7 +29,7 @@ const server = app.listen(process.env.port || 4000 , ()=>{
     console.log(`Listening on port ${process.env.port || 4000}`)
 })
 
-
+//handling unhandled Promised Rejection Error
 process.on("unhandledRejection" , (err)=>{
     console.log(`Error is ${err}`)
     console.log(`Shutting Down due to uncaughtException Error`)

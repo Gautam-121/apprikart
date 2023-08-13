@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+//course Create Schema with mongoose
 const courseSchema = new mongoose.Schema({
 
     coursesName : {
@@ -45,4 +46,5 @@ const courseSchema = new mongoose.Schema({
     }
 })
 
+//create mongoDB Collection as name course
 module.exports = mongoose.model("course" , courseSchema)

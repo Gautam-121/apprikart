@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-
-
+//Instructor Create Schema with mongoose
 const istructorSchema = new mongoose.Schema({
     
     name : {
@@ -25,5 +24,5 @@ const istructorSchema = new mongoose.Schema({
     }
 })
 
-
+//create mongoDB  Collection as name istructor
 module.exports = mongoose.model("istructor" , istructorSchema)
