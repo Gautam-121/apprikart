@@ -16,6 +16,9 @@ process.on("uncaughtException" , (err)=>{
 //Set environment Configration
 dotenv.config({path : "./config/.env"})
 
+//static files access
+app.use(express.static(path.join(__dirname , "../build")))
+
 
 //Made connection with mongoDB
 connection()
@@ -26,6 +29,12 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
   });
+
+
+
+app.get("*" , (req , res )=>{
+    res.sendFile(path.join(__dirname , "../build/index.html"))
+})
 
 
 const server = app.listen(process.env.port || 4000 , ()=>{
