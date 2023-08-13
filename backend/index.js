@@ -2,6 +2,8 @@ const app = require("./app")
 const dotenv = require("dotenv")
 const connection = require("./config/connection")
 const cloudinary =  require("cloudinary")
+const express = require("express")
+const path = require("path")
 
 //handling UncaughtException Error
 process.on("uncaughtException" , (err)=>{
@@ -13,6 +15,7 @@ process.on("uncaughtException" , (err)=>{
 
 //Set environment Configration
 dotenv.config({path : "./config/.env"})
+
 
 //Made connection with mongoDB
 connection()
