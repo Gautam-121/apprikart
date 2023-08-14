@@ -5,6 +5,7 @@ const cloudinary =  require("cloudinary")
 const express = require("express")
 const path = require("path")
 
+
 //handling UncaughtException Error
 process.on("uncaughtException" , (err)=>{
     console.log(`Error is ${err}`)
